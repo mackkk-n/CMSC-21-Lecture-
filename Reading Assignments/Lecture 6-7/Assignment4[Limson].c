@@ -1,12 +1,11 @@
 #include <stdio.h>
-
 /* defines value of row and columns */
 #define row 8
 #define column 8
 
 int main()
 {
-    printf ("            A           B           [C]         [D]         E           F           G           H");
+    printf ("              A           B           [C]         [D]         E           F           G           H");
 
     /*initializing element values in array adj_networks;
     notice that ([i] = element) == ([i]element) */
@@ -26,7 +25,11 @@ int main()
 
     /* main loop - prints the elements in the vertical node stations from array node_station*/
     for (int node = 0; node < column; node++){
-       printf("    \n%c", node_station[node]);
+        if (node == 2 || node == 3){ // indicates charging stations
+            printf("    \n[%c]", node_station[node]);
+        }else{
+            printf("    \n  %c", node_station[node]);
+        }
 
         /* prints the respective elements from the multi-dimensional (adj_networks) array */
         for (int node_val = 0; node_val < row; node_val++){
